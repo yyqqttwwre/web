@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أذكار وصورة</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 50px;
+        }
+        #azkar {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        #image-container {
+            display: none;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="azkar">
+        <p id="zkr1" style="display: none;">سبحان الله</p>
+        <p id="zkr2" style="display: none;">الحمد لله</p>
+        <p id="zkr3" style="display: none;">الله أكبر</p>
+    </div>
+    <div id="image-container">
+        <img src="/static/image.jpg" alt="الصورة">
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // الأذكار
+            var azkar = ["#zkr1", "#zkr2", "#zkr3"];
+            var current = 0;
+
+            function showNextZkr() {
+                if (current < azkar.length) {
+                    document.querySelector(azkar[current]).style.display = 'block';
+                    current++;
+                    setTimeout(showNextZkr, 2000); // 2 ثانية بين الأذكار
+                } else {
+                    document.getElementById('image-container').style.display = 'block';
+                }
+            }
+
+            showNextZkr();
+        });
+    </script>
+</body>
+</html>
